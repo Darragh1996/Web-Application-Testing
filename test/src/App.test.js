@@ -1,9 +1,11 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+// import { render } from '@testing-library/react';
+import * as rtl from "@testing-library/react";
+import "@testing-library/jest-dom";
+import App from "./App";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders an element with specific text", () => {
+  const wrapper = rtl.render(<App />);
+  const element = wrapper.queryByText(/strikes/i);
+  expect(element).toBeInTheDocument();
 });
